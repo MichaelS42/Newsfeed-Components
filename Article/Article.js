@@ -112,3 +112,42 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+// create article function
+const createArticle = (title, date, firstParagraph, secondParagraph, thirdParagraph) => {
+//create elements
+  const article = document.createElement('div')
+  const articleTitle = document.createElement('h1')
+  const articleDate = document.createElement('h2')
+  const articleParagraph1 = document.createElement('p')
+  const articleParagraph2 = document.createElement('p')
+  const articleParagraph3 = document.createElement('p')
+  const btn = document.createElement('span')
+//create HTML structure
+article.appendChild(articleTitle)
+article.appendChild(articleDate)
+article.appendChild(articleParagraph1)
+article.appendChild(articleParagraph2)
+article.appendChild(articleParagraph3)
+article.appendChild(btn)
+//add classes
+article.classList.add('article')
+articleTitle.classList.add('article-title')
+articleDate.classList.add('article-date')
+// article.classList.add('article-paragraphs')
+btn.classList.add('expandButton')
+
+articleTitle.textContent = title
+articleDate.textContent = date
+articleParagraph1.textContent = firstParagraph
+articleParagraph2.textContent = secondParagraph
+articleParagraph3.textContent = thirdParagraph
+
+btn.addEventListener('click', () => {
+  article.classList.toggle('article-open')
+});
+return article
+}
+const articles = document.querySelector('.articles')
+data.forEach(data => {
+  articles.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
