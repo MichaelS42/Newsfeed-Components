@@ -39,28 +39,32 @@ const createMenu = (menuItems) => {
   //create Elements
   const menu = document.createElement('div');
   const list = document.createElement('ul');
-  const listItems = document.createElement('li');
+  // const listItems = document.createElement('li');
 
   //HTML structure
   menu.appendChild(list);
-  list.appendChild(listItems);
+  
 
   //classes
   menu.classList.add('menu');
 
   //forEach iteration menu items
-  
+  menuItems.forEach((item) => {
+    const listItem = document.createElement('li')
+    listItem.textContent = item;
+    list.appendChild(listItem);
+  })
 
   //add Event to button
   const menuBtn = document.querySelector('.menu-button');
   menuBtn.addEventListener('click', () => {
-    menu.classList.toggle('menu-open');
+    menu.classList.toggle('menu--open');
   })
+  
   return menu
-
-  const header = document.querySelector('.header');
-  header.appendChild(createMenu(menuItems))
-
-
 }
+
+const header = document.querySelector('.header');
+header.appendChild(createMenu(menuItems));
+
 
