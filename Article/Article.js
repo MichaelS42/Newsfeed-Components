@@ -121,28 +121,29 @@ const createArticle = (title, date, firstParagraph, secondParagraph, thirdParagr
   const articleParagraph1 = document.createElement('p')
   const articleParagraph2 = document.createElement('p')
   const articleParagraph3 = document.createElement('p')
-  const btn = document.createElement('span')
+  const ArticleBtn = document.createElement('span')
 //create HTML structure
 article.appendChild(articleTitle)
 article.appendChild(articleDate)
 article.appendChild(articleParagraph1)
 article.appendChild(articleParagraph2)
 article.appendChild(articleParagraph3)
-article.appendChild(btn)
+article.appendChild(ArticleBtn)
 //add classes
 article.classList.add('article')
 articleTitle.classList.add('article-title')
 articleDate.classList.add('article-date')
 // article.classList.add('article-paragraphs')
-btn.classList.add('expandButton')
+ArticleBtn.classList.add('expandButton')
 
 articleTitle.textContent = title
 articleDate.textContent = date
 articleParagraph1.textContent = firstParagraph
 articleParagraph2.textContent = secondParagraph
 articleParagraph3.textContent = thirdParagraph
+ArticleBtn.textContent = 'read more'
 
-btn.addEventListener('click', () => {
+ArticleBtn.addEventListener('click', () => {
   article.classList.toggle('article-open')
 });
 return article
